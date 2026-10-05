@@ -12,3 +12,95 @@
 @media(max-width:560px){.hero{grid-template-columns:1fr}.hero-art{justify-self:center;width:100%;min-height:220px}.hero-cover{width:160px;height:200px}.hero-copy .hero-actions{width:100%}.hero-copy .hero-actions .button{flex:1}.summary-note{margin-left:0}}
 .sync-intro{font-size:13px;color:var(--muted);line-height:1.6}.sync-status{border-radius:7px;background:var(--pale);padding:10px 12px;font-size:11px;color:var(--green)}.sync-conflict{border:1px solid #ead5c5;background:#fbf5ef;border-radius:8px;padding:12px;margin-top:12px}.sync-conflict p{font-size:12px;color:#785c42}.sync-conflict button{margin:3px 4px 0 0}
 .sample-toggle{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:8px;background:#fbfaf5;padding:11px;margin-top:14px}.sample-toggle input{accent-color:var(--green);width:16px;height:16px}.sample-toggle strong,.sample-toggle small{display:block}.sample-toggle strong{font-size:12px}.sample-toggle small{font-size:10px;color:var(--muted);margin-top:3px}.privacy-list{padding-left:19px;color:var(--muted);font-size:12px;line-height:1.7}.footer-link{border:0;background:none;color:var(--green);font-size:10px;text-decoration:underline;cursor:pointer;margin-left:8px}
+
+/* Automatic family-book opening sequence in the hero. */
+.hero-art{perspective:1400px;transform-style:preserve-3d;isolation:isolate}.hero-cover{z-index:2;transform-origin:left center;transform-style:preserve-3d;overflow:visible;backface-visibility:hidden}.hero-cover>*{backface-visibility:hidden}.hero-cover::before{content:"";position:absolute;inset:0;z-index:0;border:7px solid #536344;border-radius:4px 11px 11px 4px;background:repeating-linear-gradient(0deg,#f7f1e4,#f7f1e4 8px,#ede4d3 9px,#f7f1e4 10px);transform:rotateY(180deg);backface-visibility:hidden}.hero-cover strong,.hero-cover small,.hero-cover i,.hero-cover .cover-sprig,.hero-cover .cover-rule{z-index:1}.hero-book-spread{position:absolute;z-index:1;left:50%;top:calc(50% - 8px);width:350px;height:228px;display:grid;grid-template-columns:1fr 1fr;transform:translate(-50%,-50%) scale(.93);opacity:0;pointer-events:none;transform-style:preserve-3d;filter:drop-shadow(5px 12px 12px #302b1d22)}.hero-book-page{position:relative;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:20px 22px;overflow:hidden;background:linear-gradient(90deg,#f2eddf,#fffdf6 13%);color:#545949;border-block:1px solid #e7dfcf}.hero-page-left{border-radius:8px 0 0 8px;border-left:1px solid #e7dfcf}.hero-page-right{border-radius:0 8px 8px 0;border-right:1px solid #e7dfcf;background:linear-gradient(270deg,#f2eddf,#fffdf6 13%)}.hero-book-page small,.hero-page-face small{font-size:8px;font-weight:700;letter-spacing:1.4px;color:#768166}.hero-book-page strong,.hero-page-face strong{font:600 20px/1.12 var(--serif);color:#3f4d3c}.hero-book-page span,.hero-page-face span{font:italic 11px/1.5 var(--serif);color:#777468}.hero-book-page i{margin-top:4px;font:italic 10px var(--serif);color:#a37b54}.hero-book-page::after{content:"";position:absolute;top:0;bottom:0;left:9px;width:1px;background:#ebe4d7}.hero-page-right::after{left:auto;right:9px}.hero-page-flip{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;visibility:hidden}.hero-page-face{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:18px;background:linear-gradient(270deg,#eee8db,#fffdf6 20%);backface-visibility:hidden;border-block:1px solid #e7dfcf;box-shadow:3px 3px 8px #42382317}.hero-page-face.page-reverse{background:linear-gradient(90deg,#eee8db,#fffdf6 20%);transform:rotateY(180deg)}.hero-book-sequence .hero-art{z-index:5;animation:book-art-journey 5.2s cubic-bezier(.25,.75,.22,1) both}.hero-book-sequence .hero-copy{animation:hero-copy-away 5.2s ease-in-out both}.hero-book-sequence .hero-book-spread{animation:book-spread-appear 5.2s ease both}.hero-book-sequence .hero-cover{animation:book-cover-open-close 5.2s cubic-bezier(.2,.7,.2,1) both}.hero-book-sequence .hero-page-flip{visibility:visible;animation:page-ripple .78s cubic-bezier(.35,.05,.2,1) both}.hero-book-sequence .flip-one{animation-delay:2s}.hero-book-sequence .flip-two{animation-delay:2.36s}.hero-book-sequence .flip-three{animation-delay:2.72s}@keyframes book-art-journey{0%,100%{transform:translate(0,0) scale(1)}18%,78%{transform:translate(var(--book-travel-x,0px),var(--book-travel-y,0px)) scale(1.18)}}@keyframes hero-copy-away{0%,12%,88%,100%{opacity:1;transform:translate(0,0)}20%,80%{opacity:0;transform:translateX(-54px)}}@keyframes book-spread-appear{0%,18%,83%,100%{opacity:0;transform:translate(-50%,-50%) scale(.93)}27%,75%{opacity:1;transform:translate(-50%,-50%) scale(1)}}@keyframes book-cover-open-close{0%,19%,84%,100%{transform:rotate(3deg) rotateY(0)}36%,72%{transform:rotate(3deg) rotateY(-164deg)}}@keyframes page-ripple{0%{transform:rotateY(0);opacity:0}12%{opacity:1}88%{transform:rotateY(-176deg);opacity:1}100%{transform:rotateY(-176deg);opacity:0}}
+@media(max-width:760px){.hero-book-sequence .hero-copy{animation-name:hero-copy-up}.hero-book-sequence .hero-art{animation-name:book-art-journey-mobile}@keyframes hero-copy-up{0%,12%,88%,100%{opacity:1;transform:translateY(0)}20%,80%{opacity:0;transform:translateY(-34px)}}@keyframes book-art-journey-mobile{0%,100%{transform:translate(0,0) scale(1)}18%,78%{transform:translate(var(--book-travel-x,0px),-64px) scale(1.12)}}.hero-book-spread{width:min(350px,94vw);height:210px}.hero-page-face{padding:13px 12px}.hero-book-page{padding:14px 12px}.hero-book-page strong,.hero-page-face strong{font-size:17px}.hero-book-page span,.hero-page-face span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.hero-book-sequence .hero-art,.hero-book-sequence .hero-copy,.hero-book-sequence .hero-book-spread,.hero-book-sequence .hero-cover,.hero-book-sequence .hero-page-flip{animation:none!important}.hero-book-sequence .hero-book-spread{opacity:0}}
+
+/* Refinements: pause before the sequence, align to the hero center, and slow the page flow. */
+.hero-book-sequence .hero-art{animation-name:book-art-journey-v2;animation-duration:5.8s}.hero-book-sequence .hero-copy{animation-name:hero-copy-away-v2;animation-duration:5.8s}.hero-book-sequence .hero-book-spread{animation-name:book-spread-appear-v2;animation-duration:5.8s}.hero-book-sequence .hero-cover{animation-name:book-cover-open-close-v2;animation-duration:5.8s}.hero-book-sequence .hero-page-flip{animation-name:page-ripple-v2;animation-duration:1.05s;animation-timing-function:cubic-bezier(.4,0,.2,1)}.hero-book-sequence .flip-one{animation-delay:2.05s}.hero-book-sequence .flip-two{animation-delay:2.43s}.hero-book-sequence .flip-three{animation-delay:2.81s}@keyframes book-art-journey-v2{0%,100%{transform:translate(0,0) scale(1)}22%,77%{transform:translate(var(--book-travel-x,0px),var(--book-travel-y,0px)) scale(1.16)}}@keyframes hero-copy-away-v2{0%,15%,89%,100%{opacity:1;transform:translate(0,0)}23%,81%{opacity:0;transform:translateX(-48px)}}@keyframes book-spread-appear-v2{0%,21%,82%,100%{opacity:0;transform:translate(-50%,-50%) scale(.93)}29%,76%{opacity:1;transform:translate(-50%,-50%) scale(1)}}@keyframes book-cover-open-close-v2{0%,23%,84%,100%{transform:rotate(3deg) rotateY(0)}37%,72%{transform:rotate(3deg) rotateY(-164deg)}}@keyframes page-ripple-v2{0%{transform:rotateY(0);opacity:0}14%{opacity:1}88%{transform:rotateY(-176deg);opacity:1}100%{transform:rotateY(-176deg);opacity:0}}
+@media(max-width:760px){.hero-book-sequence .hero-copy{animation-name:hero-copy-away-mobile-v2}@keyframes hero-copy-away-mobile-v2{0%,15%,89%,100%{opacity:1;transform:translateY(0)}23%,81%{opacity:0;transform:translateY(-30px)}}}
+
+/* Straighten the cover before it travels; let its shadow follow the lift. */
+.hero-book-ground{position:absolute;z-index:0;left:50%;bottom:28px;width:172px;height:17px;border-radius:50%;transform:translateX(-50%);background:#28302655;filter:blur(10px);opacity:.26;pointer-events:none}.hero-book-sequence .hero-art{animation-name:book-art-journey-v3}.hero-book-sequence .hero-cover{animation-name:book-cover-open-close-v3}.hero-book-sequence .hero-book-ground{animation:book-ground-v3 5.8s ease-in-out both}@keyframes book-art-journey-v3{0%,100%{transform:translate(0,0) scale(1);background-color:#ecebdd}22%,77%{transform:translate(var(--book-travel-x,0px),var(--book-travel-y,0px)) scale(1.16);background-color:transparent}}@keyframes book-cover-open-close-v3{0%{transform:rotate(3deg) rotateY(0);box-shadow:8px 10px 0 #344431,12px 17px 26px #3239292b}12%,22%{transform:rotate(0) rotateY(0);box-shadow:3px 7px 0 #34443188,0 15px 22px #3239292a}37%,72%{transform:rotate(0) rotateY(-164deg);box-shadow:1px 5px 0 #34443166,0 25px 38px #20271f42}84%{transform:rotate(0) rotateY(0);box-shadow:3px 7px 0 #34443188,0 15px 22px #3239292a}100%{transform:rotate(3deg) rotateY(0);box-shadow:8px 10px 0 #344431,12px 17px 26px #3239292b}}@keyframes book-ground-v3{0%,100%{opacity:.26;filter:blur(9px);transform:translateX(-50%) scale(.88)}22%,77%{opacity:.17;filter:blur(18px);transform:translateX(-50%) scale(1.25)}}
+
+/* Keep the closed cover centered and let the pages visually pass above it. */
+.hero-book-spread{z-index:3}.hero-cover{z-index:2;transform-origin:center center}.hero-book-ground{left:50%;bottom:28px}
+
+/* Hinge the cover on the spread's center seam instead of spinning it around its center. */
+.hero-book-sequence .hero-cover{transform-origin:left center;animation-name:book-cover-hinged-v4}
+@keyframes book-cover-hinged-v4{
+  0%,12%,22%{z-index:4;opacity:1;transform:translateX(0) rotate(0);box-shadow:3px 7px 0 #34443188,0 15px 22px #3239292a}
+  37%{z-index:4;opacity:0;transform:translateX(85px) rotateY(-164deg);box-shadow:none}
+  42%,72%,78%{z-index:2;opacity:0;transform:translateX(85px) rotateY(-164deg);box-shadow:none}
+  84%,100%{z-index:4;opacity:1;transform:translateX(0) rotate(0);box-shadow:3px 7px 0 #34443188,0 15px 22px #3239292a}
+}
+
+/* Recipe details turn in like a printed page; the close action turns them back. */
+#detailDialog{perspective:1100px}
+#detailDialog[open] .detail{transform-origin:left center;backface-visibility:hidden;animation:recipe-page-turn-in .44s cubic-bezier(.2,.72,.24,1) both}
+#detailDialog.closing .detail{animation:recipe-page-turn-out .22s ease-in both}
+@keyframes recipe-page-turn-in{
+  0%{opacity:0;transform:rotateY(-16deg) translateX(18px) scale(.985)}
+  72%{opacity:1;transform:rotateY(2deg) translateX(-2px) scale(1)}
+  100%{opacity:1;transform:rotateY(0) translateX(0) scale(1)}
+}
+@keyframes recipe-page-turn-out{
+  0%{opacity:1;transform:rotateY(0) translateX(0) scale(1)}
+  100%{opacity:0;transform:rotateY(12deg) translateX(12px) scale(.99)}
+}
+@media(prefers-reduced-motion:reduce){#detailDialog[open] .detail,#detailDialog.closing .detail{animation:none!important}}
+
+/* Keep the flipping sheets in true 3D; a filter on their shared parent flattens them. */
+.hero-book-spread{filter:none}
+.hero-book-page{box-shadow:0 9px 16px #302b1d20}
+.hero-book-sequence .hero-page-flip{animation-name:page-ripple-upright;animation-duration:.64s;animation-timing-function:cubic-bezier(.38,.05,.2,1)}
+.hero-book-sequence .flip-one{animation-delay:2.12s}
+.hero-book-sequence .flip-two{animation-delay:2.78s}
+.hero-book-sequence .flip-three{animation-delay:3.44s}
+@keyframes page-ripple-upright{
+  0%{transform:rotateY(0deg) rotateZ(0deg);opacity:0}
+  12%{opacity:1}
+  88%{transform:rotateY(-180deg) rotateZ(0deg);opacity:1}
+  100%{transform:rotateY(-180deg) rotateZ(0deg);opacity:0}
+}
+
+/* Swap page faces at the spine so left-side text never shows through mirrored. */
+.hero-book-sequence .hero-page-flip{transform-style:flat;animation-name:page-flip-readable;animation-duration:.6s;animation-timing-function:cubic-bezier(.32,.04,.24,1)}
+.hero-book-sequence .flip-one{animation-delay:2.12s}
+.hero-book-sequence .flip-two{animation-delay:2.64s}
+.hero-book-sequence .flip-three{animation-delay:3.16s}
+.hero-book-sequence .hero-page-flip .hero-page-face{backface-visibility:visible;animation:page-front-face-hide .6s linear both;animation-delay:inherit}
+.hero-book-sequence .hero-page-flip .page-reverse{transform:scaleX(-1);animation-name:page-back-face-show}
+@keyframes page-flip-readable{
+  0%{transform:translateY(0) scaleX(1);opacity:0}
+  12%{opacity:1}
+  48%{transform:translateY(-2px) scaleX(.04);opacity:1}
+  52%{transform:translateY(-2px) scaleX(-.04);opacity:1}
+  88%{transform:translateY(0) scaleX(-1);opacity:1}
+  100%{transform:translateY(0) scaleX(-1);opacity:0}
+}
+@keyframes page-front-face-hide{
+  0%,42%{visibility:visible;opacity:1}
+  50%{visibility:visible;opacity:0}
+  51%,100%{visibility:hidden;opacity:0}
+}
+@keyframes page-back-face-show{
+  0%,49%{visibility:hidden;opacity:0}
+  50%{visibility:visible;opacity:0}
+  57%,100%{visibility:visible;opacity:1}
+}
+
+/* Give the lower cookbook sections a consistent, warmer palette. */
+:root{--ink:#2d352d;--muted:#70746b;--paper:#f6f3eb;--card:#fffdf7;--green:#536b4e;--line:#e3ddcf;--orange:#bd7650;--pale:#e9ede4;--section-wash:#eef1e9;--section-wash-alt:#f4eee5}
+html[data-theme="sage"]{--paper:#f6f3eb;--card:#fffdf7;--green:#536b4e;--line:#e3ddcf;--orange:#bd7650;--pale:#e9ede4;--section-wash:#eef1e9;--section-wash-alt:#f4eee5}
+html[data-theme="tomato"]{--paper:#fbf5ef;--card:#fffaf6;--green:#9c4e3a;--line:#ead8cd;--orange:#bd6745;--pale:#f3e7df;--section-wash:#f7ece5;--section-wash-alt:#f2e7e0}
+html[data-theme="lavender"]{--paper:#f8f6fa;--card:#fefcff;--green:#686080;--line:#e4dfeb;--orange:#a8758d;--pale:#eeebf4;--section-wash:#f0eef6;--section-wash-alt:#f5edf2}
+.section{padding:22px;background:var(--section-wash);border:1px solid var(--line);border-radius:16px;box-shadow:0 7px 22px #303a2c08}
+#familySection{background:var(--section-wash-alt)}
+.memo-card,.recipe-card,.contribution-card{background:var(--card);border-color:var(--line)}
+.contribution-card[data-contribution^="story-sample"],.recipes-section .recipe-card:nth-child(3n+1){background:var(--card)}
+.empty{background:var(--card);border-color:#d7d5c8}
+.summary{background:var(--pale);border-color:var(--line)}
+.book-settings{background:var(--pale)}

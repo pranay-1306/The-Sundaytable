@@ -1,31 +1,37 @@
 # Sunday Table
 
-A family recipe book that keeps voice memos, recipes, photos, and the stories behind them together.
-
-## Features
-
-- Record or upload voice memos and add transcripts or notes manually.
-- Turn a memo into a recipe and link it back to the recording.
-- Add family stories, photos, and recipe contributions.
-- Customize book themes, hide demo content, and print or save the book as PDF.
-- Optionally sync the collection and media across family browsers with a shared passphrase.
-
-Automatic transcription and individual user accounts are not included. The family passphrase is shared by everyone with access.
+A family cookbook for saving voice memos, recipes, photos, and the stories behind them.
 
 ## Run locally
 
-Requires Node.js 20 or newer. In PowerShell, from the project folder:
+Requires Node.js 20 or newer.
 
+PowerShell:
+
+```powershell
 $env:FAMILY_PASSWORD = 'choose-a-long-family-passphrase'
 $env:DATA_DIR = '.\data'
 npm start
+```
 
-Open http://localhost:8787. Keep the passphrase and data/ out of source control.
+Open http://localhost:8787. Keep the passphrase out of source control.
+
+## Features
+
+- Record or upload family voice memos and add transcripts or notes manually.
+- Turn a memo into a recipe and link the recipe back to its recording.
+- Save recipes, photos, family stories, and contributions.
+- Customize the family book and print it or save it as a PDF.
+- Optionally hide the demo content.
+- Sync a shared collection and media across browsers with a family passphrase.
+- Keep collection snapshots on the server's persistent data disk.
+
+Automatic transcription and individual family accounts are not included. The shared collection uses one passphrase for all relatives. See [the app guide](outputs/README.md) for privacy, hosting, and deployment details.
 
 ## Verify
 
-Run npm test to exercise sign-in, collection sync, conflict handling, media transfer, and snapshots.
+```sh
+npm test
+```
 
-## Hosting
-
-This app needs a Node host and persistent storage mounted at DATA_DIR. GitHub Pages cannot run the sync server. The Render blueprint is in render.yaml; configure FAMILY_PASSWORD as a host secret before deploying. See the app guide (outputs/README.md) for privacy and storage notes.
+The test starts an isolated local server and checks login, state sync, conflict handling, media transfer, and snapshots.
