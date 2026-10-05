@@ -104,3 +104,10 @@ html[data-theme="lavender"]{--paper:#f8f6fa;--card:#fefcff;--green:#686080;--lin
 .empty{background:var(--card);border-color:#d7d5c8}
 .summary{background:var(--pale);border-color:var(--line)}
 .book-settings{background:var(--pale)}
+
+/* Separate page turns slightly so each new spread is readable. */
+.hero-book-sequence .hero-page-flip{animation-duration:.62s}
+.hero-book-sequence .hero-page-flip .hero-page-face{animation-duration:.62s}
+.hero-book-sequence .flip-one{animation-delay:2.12s}
+.hero-book-sequence .flip-two{animation-delay:2.82s}
+.hero-book-sequence .flip-three{animation-delay:3.52s}
